@@ -105,6 +105,18 @@
             margin-bottom: 2rem;
         }
 
+        /* Стили для формы */
+        input, textarea, select {
+            background-color: #1b1e23;
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 0.5rem;
+            color: #e2e2e2;
+            width: 100%;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
         .review-form button {
             background-color: #28a745;
             color: white;
@@ -157,9 +169,9 @@
         </div>
 
         <div class="review-form">
-            <form action="" method="post">
+            <form method="post">
                 {% csrf_token %}
-                {{ form }}
+                {{ form.as_p }}
                 <button type="submit">Отправить отзыв</button>
             </form>
         </div>
