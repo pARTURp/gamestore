@@ -20,6 +20,8 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     stock = models.PositiveIntegerField(verbose_name='Остаток на складе')
     available = models.BooleanField(default=True, verbose_name='Доступен')
+    zip_file = models.FileField(upload_to='zips/', blank=True, null=True, verbose_name='ZIP архив')
+
 
     def __str__(self):
         return self.name

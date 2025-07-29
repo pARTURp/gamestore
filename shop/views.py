@@ -3,7 +3,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from shop.forms import ReviewForm
 
 from .models import Product, Category
+from django.http import FileResponse
+
 # Create your views here.
+
+def download_zip(request, pk):
+    archive = get_object_or_404(pk=pk)
+    return FileResponse(archive.zip_file.open(), as_attachment=True, filename=archive.zip_file.name)
 
 # http://127.0.0.1:8000/
 def product_list(request, slug=None):

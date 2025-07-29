@@ -149,7 +149,10 @@
                 <div class="product-name">{{ product.name }}</div>
                 <div class="product-description">{{ product.description }}</div>
                 <div class="product-date">Добавлено: {{ product.created_at }}</div>
-                <a href="/media/files/шутер — копия/" download class="download-button">Скачать</a>
+
+                {% if product.zip_file %}
+                    <a href="{{ product.zip_file.url }}" class="download-button" download>📦 Скачать архив</a>
+                {% endif %}
             </div>
         </div>
 

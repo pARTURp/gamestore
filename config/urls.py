@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-
+from shop import views
 from shop.views import *
 
 urlpatterns = [
@@ -29,6 +29,8 @@ urlpatterns = [
     path('category/<slug:slug>/', product_list, name='product_by_category'),
     #http://127.0.0.1:8000/product/mylo
     path('product/<slug:slug>/', product_detail, name='product_detail'),
+
+    path('download/<int:pk>/', views.download_zip, name='download_zip'),
 ]
 
 if settings.DEBUG:
